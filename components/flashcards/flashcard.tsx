@@ -32,7 +32,7 @@ export function Flashcard({ frontContent, backContent, isFlipped, onFlip }: Flas
           }}
         >
           <Card className="h-full flex items-center justify-center border-amber-800/30 bg-transparent">
-            <CardContent className="p-6 text-center">
+            <CardContent className="p-6 text-center max-h-72 overflow-y-auto break-words">
               <CardHeader className="p-0 mb-4">
                 <CardTitle className="text-xl font-serif text-amber-400">Question</CardTitle>
               </CardHeader>
@@ -50,11 +50,18 @@ export function Flashcard({ frontContent, backContent, isFlipped, onFlip }: Flas
           }}
         >
           <Card className="h-full flex items-center justify-center border-amber-800/30 bg-transparent">
-            <CardContent className="p-6 text-center">
+            <CardContent className="p-6 text-center max-h-72 overflow-y-auto break-words">
               <CardHeader className="p-0 mb-4">
                 <CardTitle className="text-xl font-serif text-amber-400">Answer</CardTitle>
               </CardHeader>
-              <CardDescription className="text-amber-100 text-lg">{backContent}</CardDescription>
+              <CardDescription className="text-amber-100 text-lg">
+                {backContent.split('\n').map((line, idx) => (
+                  <span key={idx}>
+                    {line}
+                    <br />
+                  </span>
+                ))}
+              </CardDescription>
             </CardContent>
           </Card>
         </motion.div>
