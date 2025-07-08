@@ -6,7 +6,9 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "seed": "tsx scripts/seed.ts",
+    "seed:env": "DATABASE_URL=postgresql://postgres:postgres@127.0.0.1:54322/postgres tsx scripts/seed.ts"
   },
   "dependencies": {
     "@aws-sdk/client-rds-data": "latest",

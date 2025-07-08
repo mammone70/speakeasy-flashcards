@@ -1,12 +1,32 @@
 import { eq, desc, and, inArray } from "drizzle-orm"
 import { db } from "@/lib/db"
 import { decks } from "@/lib/db/schemas/decks"
+import { cards } from "@/lib/db/schemas/cards"
+import { decksRelations } from "@/lib/db/schemas/relations"
 import type { NewDeck, Deck } from "@/lib/db/schemas/decks"
+import type { Card } from "@/lib/db/schemas/cards"
+
+// Type for deck with related cards
+export type DeckWithCards = Deck & {
+    cards: Card[]
+}
 
 export class DecksDAO {
     static async findById(id: string): Promise<Deck | null> {
         const result = await db.select().from(decks).where(eq(decks.id, id)).limit(1)
         return result[0] || null
+    }
+
+    static async findByIdWithCards(id: string): Promise<DeckWithCards | null> {
+        const result = await db.query.decks.findFirst({
+            where: eq(decks.id, id),
+            with: {
+                cards: {
+                    orderBy: desc(cards.createdAt)
+                }
+            }
+        })
+        return result || null
     }
 
     static async findAll(): Promise<Deck[]> {

@@ -34,9 +34,9 @@ export function FlashcardDeck({ deck, cards }: FlashcardDeckProps) {
       title: deck.title,
       description: deck.description,
       createdBy: deck.createdBy,
-      isPublic: deck.isPublic,
-      createdAt: deck.createdAt,
-      updatedAt: deck.updatedAt,
+      isPublic: deck.isPublic ?? false,
+      createdAt: deck.createdAt.toISOString(),
+      updatedAt: deck.updatedAt.toISOString(),
     }
     
     // Transform cards data to match store expectations
@@ -45,8 +45,8 @@ export function FlashcardDeck({ deck, cards }: FlashcardDeckProps) {
       deckId: card.deckId,
       frontContent: card.frontContent,
       backContent: card.backContent,
-      createdAt: card.createdAt,
-      updatedAt: card.updatedAt,
+      createdAt: card.createdAt.toISOString(),
+      updatedAt: card.updatedAt.toISOString(),
     }))
     
     setCurrentDeck(transformedDeck)
@@ -112,34 +112,36 @@ export function FlashcardDeck({ deck, cards }: FlashcardDeckProps) {
           </div>
         </CardContent>
 
-        <CardFooter className="border-t border-amber-800/20 bg-amber-950/30 flex justify-between">
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+        <CardFooter className="border-t border-amber-800/20 bg-amber-950/30 flex justify-between items-center py-4">
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex items-center">
             <Button
               onClick={previousCard}
               variant="outline"
-              className="border-amber-600 text-amber-100 hover:bg-amber-800 hover:text-amber-100"
+              className="border-amber-600 text-amber-100 hover:bg-amber-800 hover:text-amber-100 h-10"
             >
-              <ChevronLeft className="mr-2 h-4 w-4" /> Previous
+              <ChevronLeft className="mr-2 h-4 w-4 md:mr-2" />
+              <span className="hidden md:inline">Previous</span>
             </Button>
           </motion.div>
 
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex items-center">
             <Button
               onClick={flipCard}
               variant="secondary"
-              className="bg-amber-800/70 text-amber-100 hover:bg-amber-700"
+              className="bg-amber-800/70 text-amber-100 hover:bg-amber-700 h-10"
             >
-              <Flip className="mr-2 h-4 w-4" /> {isFlipped ? "Show Question" : "Show Answer"}
+              <Flip className="mr-2 h-4 w-4" /> {isFlipped ? "Question" : "Answer"}
             </Button>
           </motion.div>
 
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex items-center">
             <Button
               onClick={nextCard}
               variant="outline"
-              className="border-amber-600 text-amber-100 hover:bg-amber-800 hover:text-amber-100"
+              className="border-amber-600 text-amber-100 hover:bg-amber-800 hover:text-amber-100 h-10"
             >
-              Next <ChevronRight className="ml-2 h-4 w-4" />
+              <span className="hidden md:inline">Next</span>
+              <ChevronRight className="ml-2 h-4 w-4 md:ml-2" />
             </Button>
           </motion.div>
         </CardFooter>
