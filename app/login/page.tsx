@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
-import { SignInButton } from "@/components/auth/auth-buttons"
+import { SignInButton } from "@/components/auth/sign-in-button"
 import { useAuthStore } from "@/lib/store/use-auth-store"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { motion } from "framer-motion"
@@ -46,11 +46,11 @@ export default function LoginPage() {
 
               <SignInButton />
 
-              <div className="mt-6 text-center">
+              {/* <div className="mt-6 text-center">
                 <p className="text-amber-200/60 text-xs">
                   Note: Users with email 'mammone@gmail.com' will be granted admin privileges.
                 </p>
-              </div>
+              </div> */}
             </CardContent>
           </Card>
         </motion.div>

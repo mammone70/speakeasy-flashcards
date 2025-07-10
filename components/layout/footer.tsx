@@ -21,14 +21,7 @@ export function Footer() {
           >
             &copy; {new Date().getFullYear()} Speakeasy Flashcards. All rights reserved.
           </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.9 }}
-            className="text-center text-amber-200/40 text-xs mt-2"
-          >
-            The password is "swordfish"
-          </motion.p>
+          
         </div>
       </div>
     </motion.footer>

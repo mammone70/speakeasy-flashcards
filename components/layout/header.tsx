@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { SignOutButton } from "@/components/auth/auth-buttons"
+import { SignOutButton } from "@/components/auth/sign-out-button"
 import { useAuthStore } from "@/lib/store/use-auth-store"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
