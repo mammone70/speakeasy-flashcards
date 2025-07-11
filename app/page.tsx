@@ -7,19 +7,7 @@ import { MotionWrapper } from "@/components/ui/motion-wrapper"
 import { DecksDAO } from "@/lib/dao"
 
 export default async function Home() {
-  // Fetch the featured decks to get their actual IDs using DAO
-  const featuredDecks = await DecksDAO.findByTitles(["Prohibition Era", "Jazz Age Slang", "Classic Cocktails"])
-
-  // Create a map of deck titles to their IDs
-  const deckMap =
-    featuredDecks?.reduce(
-      (acc, deck) => {
-        acc[deck.title] = deck.id
-        return acc
-      },
-      {} as Record<string, string>,
-    ) || {}
-
+  
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
