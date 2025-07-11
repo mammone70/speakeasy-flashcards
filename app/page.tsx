@@ -2,12 +2,10 @@ import Link from "next/link"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { MotionWrapper } from "@/components/ui/motion-wrapper"
-import { DecksDAO } from "@/lib/dao"
 
 export default async function Home() {
-  
+    
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -35,7 +33,7 @@ export default async function Home() {
                       <Link href="/decks">Browse Decks</Link>
                     </Button>
                   </MotionWrapper>
-                  <MotionWrapper whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  {/* <MotionWrapper whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                     <Button
                       asChild
                       variant="outline"
@@ -44,7 +42,7 @@ export default async function Home() {
                     >
                       <Link href="/login">Sign In</Link>
                     </Button>
-                  </MotionWrapper>
+                  </MotionWrapper> */}
                 </div>
               </div>
             </MotionWrapper>
