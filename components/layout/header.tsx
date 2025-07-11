@@ -10,6 +10,8 @@ import { Shield } from "lucide-react"
 
 export function Header() {
   const { user, isAdmin } = useAuthStore()
+  console.log(user)
+
   const pathname = usePathname()
 
   const navVariants = {
@@ -96,7 +98,6 @@ export function Header() {
             transition={{ duration: 0.5 }}
             className="flex items-center space-x-4"
           >
-            console.log(user)
             {user ? (
               <div className="flex items-center space-x-4">
                 <div className="flex items-center text-sm text-amber-200/80">
