@@ -13,7 +13,7 @@ export function SignInButton() {
   const supabase = createClient()
   const {user} = useAuthStore();
 
-  if(!user) return null;
+  if(user) return null;
   
   const handleSignInWithSlack = async () => {
     try {
