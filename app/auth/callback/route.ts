@@ -11,7 +11,7 @@ export async function GET(request: Request) {
     // if "next" is not a relative URL, use the default
     next = '/'
   }
-
+  console.log('code', code);
   if (code) {
     const supabase = await createClient()
     const { error } = await supabase.auth.exchangeCodeForSession(code)
