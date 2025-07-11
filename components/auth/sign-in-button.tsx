@@ -11,8 +11,10 @@ export function SignInButton() {
  
   const [isLoading, setIsLoading] = useState(false)
   const supabase = createClient()
+  const {user} = useAuthStore();
 
-
+  if(!user) return null;
+  
   const handleSignInWithSlack = async () => {
     try {
       setIsLoading(true)

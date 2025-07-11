@@ -3,6 +3,7 @@ import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { Button } from "@/components/ui/button"
 import { MotionWrapper } from "@/components/ui/motion-wrapper"
+import { SignInButton } from "@/components/auth/sign-in-button"
 
 export default async function Home() {
     
@@ -33,16 +34,7 @@ export default async function Home() {
                       <Link href="/decks">Browse Decks</Link>
                     </Button>
                   </MotionWrapper>
-                  {/* <MotionWrapper whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Button
-                      asChild
-                      variant="outline"
-                      size="lg"
-                      className="border-amber-600 text-amber-100 hover:bg-amber-800 hover:text-amber-100 px-8"
-                    >
-                      <Link href="/login">Sign In</Link>
-                    </Button>
-                  </MotionWrapper> */}
+                  <SignInButton />
                 </div>
               </div>
             </MotionWrapper>
